@@ -1,0 +1,1 @@
+PHP -S < Lance un serveur > 127.0.0.1 <pour l'IP local> :8000 < sur le port 8000> -t public <pointant sur le repertoire public>
