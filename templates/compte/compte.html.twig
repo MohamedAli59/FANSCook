@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}Accueil - Mon Compte{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('assets/css/style_compte.css') }}">
+    {% endblock %}
+</head>
+<body>
+
+<!-------------------------------------------------------header-------------------------------------------------------->
+    {% block header %}
+        <div class="d-flex flex-wrap backGround header">
+            <div class="col-6 col-md-3">
+                <a href="{{ path('public') }}"><img class="img-fluid" src="{{ asset('assets/img/Cooking.png')}}"  alt="logo_FANSCook"></a>
+            </div>
+            <div class="col-6 col-md-3 order-md-last align-self-center text-right">
+                <a href="{{path('security_logout')}}" type="button" class="d-none d-xl-inline btn btn-outline-danger btn-sm align-items-center mr-4 decoFontColor">Deconnexion</a>
+                <i class="d-xl-none fas fa-power-off fa-2x text-danger"></i>
+                <a href="{{ path('compte') }}"><i id="iconCompte" class="fas fa-user text-white fa-3x mx-4 responsive"></i></a><figcaption class=" d-none d-xl-block">Mon compte</figcaption>
+            </div>
+            <div class="col-12 col-md-6 align-self-center">
+                <div class="input-group md-form form-sm form-2 pl-0" >
+                    <input class="form-control my-0 py-1 amber-border" id="autocomp" type="text" placeholder="Search" aria-label="Search">
+                    <div class="input-group-append">
+                        <span class="input-group-text searchBackground" id="basic-text1"><i class="fas fa-search dark"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+<!--------------------------------------------------------------------------------------------------------------------->
+<!--------------------------------------------------------menu--------------------------------------------------------->
+    {% block menu %}
+        <nav class="menu" id="menu">
+            <button class="btn btn-sm m-2" id="btnMenu" type="button"><img src="{{ asset('assets/img/buttonMenu.png')}}" alt="image_bouton_menu" width="29"></button>
+        </nav>
+    {% endblock %}
+<!--------------------------------------------------------------------------------------------------------------------->
+<!-----------------------------------------------------body--------------------------------------------------------->
+    {% block body %}
+        <div class="container-fluid m-0 p-0">
+            <div class="row m-0 p-0">
+                <div class="col-lg-2" id="divMenu">
+                    <div class="row">
+                        <div id="menuCol" class="text-lg-center col pt-5 pb-5">
+                            <div class="p-2">
+                                <a class="nav-item nav-link active p-3" href="{{ path('public') }}">Accueil<span class="sr-only">(current)</span></a>
+                            </div>
+                            <div class="p-2">
+                                <a class="nav-item nav-link p-3" href="{{ path('users_show', {'id': app.user.id}) }}">Infos personnelles</a>
+                            </div>
+                            <div class="p-2">
+                                <a class="nav-item nav-link p-3" href="#">Mes favoris</a>
+                            </div>
+                            <div class="p-2">
+                                <a class="nav-item nav-link p-3" href="#">Liste commmentaires</a>
+                            </div>
+                            <div class="p-2">
+                                <a class="nav-item nav-link p-3" href="{{path('recettes_new')}}">Proposer une recette</a>
+                            </div>
+                            <div class="p-2">
+                                <a class="nav-item nav-link p-3" href="#">Envoyer un message</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!------------------------------------------------Container-------------------------------------------->
+                {% block container %}
+                <div class="col mx-auto p-0 m-0 divBody" id="contentContact">
+                    <h1 class="text-center m-5">BIENVENUE DANS VOTRE ESPACE PERSONNEL</h1>
+                </div>
+                {% endblock %}
+                <!----------------------------------------------------------------------------------------------------->
+            </div>
+        </div>
+    {% endblock %}
+<!--------------------------------------------------------------------------------------------------------------------->
+<!-----------------------------------------------------footer---------------------------------------------------------->
+    {% block footer %}
+        <footer>
+            <div class="card-body container-fluid footer m-0">
+                <div class="row m-0 p-0">
+                    <div class="logo card-body col-md-3 col-lg-3 mt-3">
+                        <figure class="text-center">
+                            <img src="{{ asset('assets/img/Cooking.png')}}" class="img-fluid" alt="logo">
+                        </figure>
+                    </div>
+                    <div class="card-body part col-sm-12 col-md-3 col-lg-3 text-center justify-content-around mt-4 row ">
+                        <h5 class="col-lg-12">Partenaires:</h5>
+                        <div class="row card-body col-12 justify-content-center">
+                            <figure class="ml-3 mr-3 mt-2">
+                                <img src="{{ asset('assets/img/marmiton.png')}}" alt="marmiton" width="50">
+                            </figure>
+                            <figure class="ml-3 mr-3 mt-2">
+                                <img src="{{ asset('assets/img/cuisineAZ.png')}}" alt="cuisineAZ" width="50">
+                            </figure>
+                        </div>
+                        <div class="row card-body col-12 justify-content-center ">
+                            <figure class="ml-3 mr-3">
+                                <img src="{{ asset('assets/img/750g.png')}}" alt="750g" width="50">
+                            </figure>
+                            <figure class="ml-3 mr-3">
+                                <img src="{{ asset('assets/img/l_athelier_des_chefs.png')}}" alt="l'athelier des chefs" width="50">
+                            </figure>
+                        </div>
+                    </div>
+                    <div class="orange">
+
+                    </div>
+                    <div class="card-body col-sm-12 col-md-3 col-lg-3 mt-5">
+                        <p class="text-center">
+                            FANSCook&copy; <br>
+                            55 Avenue Jean Jaurès, 62800 Liévin <br>
+                            Tél: 03.21.45.86.23 <br>
+                            Email: <a href="#">contact@fanscook.fr</a>
+                        </p>
+                    </div>
+                    <div class="orange">
+
+                    </div>
+                    <div class="card-body col-sm-12 col-md-3 col-lg-3 text-center mt-5">
+                        <a href="envoyer_un_message.php">Nous Contacter</a><br>
+                        <a href="#">Mention Légales</a><br>
+                        <a href="#">CGU</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    {% endblock %}
+<!--------------------------------------------------------------------------------------------------------------------->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script type="text/javascript" src="https://kit.fontawesome.com/a2bab1df4f.js" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
+{% block javascripts %}<script src="{{asset('assets/js/JS_menu_compte.js')}}"></script>{% endblock %}
+</body>
+</html>

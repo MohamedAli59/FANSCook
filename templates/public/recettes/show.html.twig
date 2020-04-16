@@ -1,0 +1,68 @@
+{% extends 'public/public.html.twig' %}
+
+{% block title %}Recette - Détails{% endblock %}
+
+{% block container %}
+    <div class="col mx-auto p-0 m-0 divBody" id="contentFav">
+        <h1 class="text-center m-5">Détails de la recette</h1>
+        <div class="container mb-5">
+            <h2 class="mb-5 text-center">{{ recette.titre }}</h2>
+            <div class="justify-content-around row">
+                <div class="col-md-3 mr-5">
+                    <figure>
+                        <img class="backgroundCard borderCo" width="280" src="{{asset('assets/img/' ~ recette.image )}}"
+                             alt="image de la recette">
+                    </figure>
+                </div>
+                <div class="col-md-7">
+                    <div class="divNote">
+                        <div class="descrip rating"><!--
+                                --><a href="#5" title="Donner 5 étoiles">☆</a><!--
+                                --><a href="#4" title="Donner 4 étoiles">☆</a><!--
+                                --><a href="#3" title="Donner 3 étoiles">☆</a><!--
+                                --><a href="#2" title="Donner 2 étoiles">☆</a><!--
+                                --><a href="#1" title="Donner 1 étoile"><span>Note: </span>☆</a>
+                        </div>
+                    </div>
+                    <br><br>
+                    <span class="descrip">Description:</span>
+                    <p class="text-justify">
+                        {{recette.descriptions }}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="container mb-5">
+            <div class="justify-content-around row">
+                <div class="ingredients col-md-3 backgroundCard borderCo pt-2 mb-3">
+                    <span class="descrip">Ingrédients:</span><br><br>
+                    <ul>
+                    {% for ingredient in ingredients %}
+                    <li class="p-2">{{ ingredient.quantite }} {{ ingredient.nom }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+                <div class="preparation col-md-7 p-0">
+                    <div class="backgroundCard borderCo p-2 mb-3" height="80">
+                        <h6 class="text-center pb-3">Temps total: 15 mins</h6>
+                        <div class="row">
+                            <h6 class="col-6 text-center">Préparation: {{ recette.tmpPrepa }}</h6>
+                            <h6 class="col-6 text-center">Cuisson: {{ recette.tmpCuisson }}</h6>
+                        </div>
+                    </div>
+                    <div class="prep backgroundCard borderCo p-3">
+                        <span class="descrip">Préparations:</span>
+                        {% for preparation in preparations %}
+                        <p class="pt-3 pb-2">
+                            {{ preparation.ordres }} - {{ preparation.etapes }}
+                        </p>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center mb-5">
+        <a type="button" class="btn btn-dark" href="{{ path('categories_show', {'id': category.id}) }}">← Retour à la liste des recettes</a>
+    </div>
+{% endblock %}

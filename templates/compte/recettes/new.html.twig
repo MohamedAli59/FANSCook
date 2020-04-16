@@ -1,0 +1,53 @@
+{% extends 'compte/compte.html.twig' %}
+
+{% block title %}New Recettes{% endblock %}
+
+{% block container %}
+    <div class="col mx-auto p-0 m-0 divBody" id="contentFav">
+        <h1 class="text-center m-5">PROPOSER UNE RECETTE</h1>
+        <div>
+            {{ form_start(form) }}
+            <div class="border border-secondary col p-4 m-5 formRecette mx-auto">
+                <div class="form-row">
+                    <div class="form-group col">
+                        <label for="categorie">Catégorie de recette:</label>
+
+                        {{ form_widget(form.categories) }}
+                    </div>
+                    <div class="form-group col">
+                        <label for="titre">Titre:</label>
+                        {{ form_widget(form.titre) }}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col">
+                        <label for="tcuisson">Temps de cuisson:</label>
+                        {{ form_widget(form.tmp_cuisson) }}
+                    </div>
+
+                    <div class="form-group col">
+                        <label for="tprepa">Temps de préparation:</label>
+                        {{ form_widget(form.tmp_prepa) }}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="custom-file col mr-1 ml-1 mt-3 mb-3">
+                        <label class="custom-file-label" for="imgRecette">Choisissez une photo</label>
+
+                        {{ form_widget(form.image) }}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col">
+                        <label for="message">Description:</label>
+                        {{ form_widget(form.descriptions, {'attr': {'rows': '6'}}) }}
+                    </div>
+                </div>
+                <div class="text-right">
+                    <button class="btn btn-outline-dark">{{ button_label|default('Proposer') }}</button>
+                </div>
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}

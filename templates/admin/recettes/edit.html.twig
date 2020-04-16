@@ -1,0 +1,82 @@
+{% extends 'admin/admin.html.twig' %}
+
+{% block title %}Modifier recette{% endblock %}
+
+{% block container %}
+
+    <div class="card-body col-lg-8 m-auto">
+        <h1 class="text-center mb-3 ">Modifier Recette</h1>
+        <div class="container col-9 col-xl-9">
+            {{ form_start(form) }}
+            <div>
+                <div class="border border-dark p-3 backgroundFieldset" id="liste">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label class="descrip" for="categorie">Catégorie de recette:</label>
+                            {{ form_widget(form.categories) }}
+                        </div>
+                        <div class="form-group col-md-6 ">
+                            <label class="descrip" for="prenom">Titre:</label>
+                            {{ form_widget(form.titre) }}
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label class="descrip" for="tempsC">Temps de cuisson:</label>
+                            {{ form_widget(form.tmp_cuisson) }}
+                        </div>
+                        <div class="form-group col-md-6 ">
+                            <label class="descrip" for="tempsP">Temps de préparation:</label>
+                            {{ form_widget(form.tmp_prepa) }}
+                        </div>
+                    </div>
+                    <div class="custom-file mb-5">
+                        <label class="custom-label descrip" for="image">Choisir une image:</label>
+                        {{ form_widget(form.image) }}
+                    </div>
+                    <div class="form-group">
+                        <label class="descrip" for="Description">Description:</label>
+                        {{ form_widget(form.descriptions, {'attr': {'rows': '5'}}) }}
+                    </div>
+                    <div class="form-row justify-content-around">
+                        <div class="form-group col-md-5">
+                            <div class=" border border-dark p-3 mb-3" id="liste">
+                                <div>
+                                    <label class="descrip" for="ingredient">Ingrédient:</label>
+                                    <ul>
+                                        {% for ingredient in form.ingredients %}
+                                            <li class="mt-3 mb-5">{{form_row(ingredient.quantite)}}{{form_row(ingredient.nom)}}</li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group  col-md-5">
+                            <div class=" border border-dark  p-3 mb-3" id="liste">
+                                <div>
+                                    <label class="descrip" for="ordre">Etapes:</label>
+                                    {% for preparation in form.preparations %}
+                                        <p>{{form_row(preparation.ordres)}}{{form_row(preparation.etapes, {'attr': {'rows': '5'}})}}</p>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row p-3 mr-5 ml-5 mb-5 mt-3 border justify-content-center border-dark" id="liste">
+                        {{ form_widget(form.top_recette) }}<label class="descrip" for="top_recette">Top recette</label>
+                    </div>
+                </div>
+                <div class="text-right m-5">
+                    <a href="{{ path('admin_recettes_showtwo', {'id': recettes.id}) }}" class="btn btn-dark">{{ label_button|default('Ici pour ajouter un ingredient ou une étape') }}</a>
+                    {{ form_widget(form.save,{'label': 'Modifier', 'attr': {'class': 'btn btn-dark' }}) }}
+                </div>
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'public/public.html.twig' %}
+
+{% block title %}Articles{% endblock %}
+
+{% block container %}
+
+    <div class="col-lg-12">
+        <h1 class="text-center mt-5 mb-5">{{ article.titre }}</h1>
+        <div class="card p-0 col-lg-7 mb-5 mx-auto borderCo">
+            <img src="{{ asset('assets/img/' ~ article.image) }}" class="imgCard card-img-top" id="liste" alt="...">
+            <div class="card-body catTitle backgroundCard">
+                <p class="card-text text-justify">{{ article.description }} </p>
+                <div class="text-right">
+                <span>{{ article.dateAdd ? article.dateAdd|date('Y-m-d H:i:s') : '' }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center m-5">
+        <a class="btn btn-dark" href="{{  path('articles_index') }}">{{ button_label|default('← Retour à la liste des articles') }}</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'public/public.html.twig' %}
+
+{% block title %}Recettes{% endblock %}
+
+{% block container %}
+    <h1>Recettes</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Image</th>
+                <th>Top_recette</th>
+                <th>Note_moyenne</th>
+                <th>Date_add</th>
+                <th>Date_update</th>
+                <th>Date_delete</th>
+                <th>Activate</th>
+                <th>Descriptions</th>
+                <th>Tmp_prepa</th>
+                <th>Tmp_cuisson</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for recette in recettes %}
+            <tr>
+                <td>{{ recette.id }}</td>
+                <td>{{ recette.titre }}</td>
+                <td>{{ recette.image }}</td>
+                <td>{{ recette.topRecette ? 'Yes' : 'No' }}</td>
+                <td>{{ recette.noteMoyenne }}</td>
+                <td>{{ recette.dateAdd ? recette.dateAdd|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ recette.dateUpdate ? recette.dateUpdate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ recette.dateDelete ? recette.dateDelete|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ recette.activate ? 'Yes' : 'No' }}</td>
+                <td>{{ recette.descriptions }}</td>
+                <td>{{ recette.tmpPrepa }}</td>
+                <td>{{ recette.tmpCuisson }}</td>
+                <td>
+                    <a href="{{ path('recettes_show', {'id': recette.id}) }}">show</a>
+                    <a href="{{ path('recettes_edit', {'id': recette.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="13">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('recettes_new') }}">Create new</a>
+{% endblock %}

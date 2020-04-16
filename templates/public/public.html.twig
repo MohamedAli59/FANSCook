@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}Accueil{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('assets/css/css.css') }}">
+    {% endblock %}
+</head>
+<body>
+<!-------------------------------------------------------HEADER-------------------------------------------------------->
+{% block header %}
+    {% if app.user %}
+        <div class="d-flex flex-wrap backGround header">
+            <div class="col-6 col-md-3">
+                <a href="{{ path('public') }}"><img class="img-fluid" src="{{ asset('assets/img/Cooking.png') }}"
+                                                    alt="logo_FANSCook"></a>
+            </div>
+            <div class="col-6 col-md-3 order-md-last align-self-center text-right">
+                <a href="{{ path('security_logout') }}" type="button"
+                   class="d-none d-xl-inline btn btn-outline-danger btn-sm align-items-center mr-4 decoFontColor">Deconnexion</a>
+                <i class="d-xl-none fas fa-power-off fa-2x text-danger"></i>
+                <a href="{{ path('compte') }}"><i id="iconCompte"
+                                                  class="fas fa-user text-white fa-3x mx-4 responsive"></i></a>
+                <figcaption class=" d-none d-xl-block">Mon compte</figcaption>
+            </div>
+            <div class="col-12 col-md-6 align-self-center">
+                <form id="form_search" action="{{ path('search1') }}" method="POST">{# dans action je met le nom de mon formulaire #}
+                    <div class="m-0 p-0">
+                        <input type="text" class="form-control" placeholder="Search" name="titre">
+                        <button type="submit" class="input-group-text searchBackground py-2 mt-2" id="basic-text1"><i
+                                    class="fas fa-search dark my-1"></i></button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+    {% else %}
+        <div class="d-flex flex-wrap backGround">
+            <div class="col-6 col-md-3">
+                <a href="{{ path('public') }}"><img class="img-fluid" src="{{ asset('assets/img/Cooking.png') }}"
+                                                    alt="logo"></a>
+            </div>
+            <div class="col-6 col-md-3 order-md-last align-self-center text-right">
+                <a href="{{ path('security_login') }}" type="button"
+                   class="d-none d-xl-inline btn btn-outline-dark btn-sm btnGrey align-items-center">Se
+                    connecter</a>
+                <a href="{{ path('security_login') }}"><i
+                            class="d-xl-none fas fa-user-times text-dark sizeNoConnect btnGrey"> </i></a>
+                <a href="{{ path('security_login') }}" type="button" class="btn btn-outline-dark btn-sm btnGrey">Proposer
+                    recette</a>
+            </div>
+            <div class="col-12 col-md-6 align-self-center">
+                <div class="row">
+                    <form id="form_search" action="{{ path('search') }}"
+                          method="POST">{# dans action je met le nom de mon formulaire #}
+                        <div class="m-0 p-0">
+                            <input type="text" class="form-control" placeholder="Search" name="titre">
+                            <button type="submit" class="input-group-text searchBackground py-2 mt-2" id="basic-text1">
+                                <i class="fas fa-search dark my-1"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
+
+<!--------------------------------------------------------------------------------------------------------------------->
+<!-----------------------------------------------------BODY------------------------------------------------------------>
+{% block body %}
+    <!--------------------------------------------------MENU------------------------------------------------------->
+    {% block menu %}
+        <nav class="menu navbar navbar-expand-lg navbar-light colorMenu" id="menu">
+            <a class="navbar-brand" href="#"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav mx-auto">
+                    <a class="nav-item nav-link active text-dark pl-lg-5 pr-lg-5"
+                       href="{{ path('public') }}">Accueil<span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link active text-dark pl-lg-5 pr-lg-5" href="{{ path('articles_index') }}">Articles</a>
+                    <a class="nav-item nav-link active text-dark pl-lg-5 pr-lg-5" href="{{ path('categories_index') }}">Catégories</a>
+                    {% if app.user %}
+                        <a class="nav-item nav-link active text-dark pl-lg-5 pr-lg-5" href="{{ path('recettes_new') }}">Proposer
+                            une recette</a>
+                    {% endif %}
+                    <a class="nav-item nav-link active text-dark pl-lg-5 pr-lg-5" href="#">À propos de nous</a>
+                </div>
+            </div>
+        </nav>
+    {% endblock %}
+    <!------------------------------------------------------------------------------------------------------------->
+    <!------------------------------------------------Container---------------------------------------------------->
+    {% block container %}
+        <div id="carouselExampleIndicators" class="carousel slide mb-5 mt-5" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{{ asset('assets/img/banner1.png') }}" class="d-block img-fluid" width="100%"
+                         alt="Image recette 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ asset('assets/img/entree.jpg') }}" class="d-block img-fluid" width="100%"
+                         alt="Image recette 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ asset('assets/img/plat.jpg') }}" class="d-block img-fluid" width="100%"
+                         alt="Image recette 3">
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ asset('assets/img/dessert.jpg') }}" class="d-block img-fluid" width="100%"
+                         alt="Image recette 4">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+
+        <h1 class="text-center mt-5">Top recettes</h1>
+
+        <div class="container mt-5 mb-5">
+            <div class="row">
+                {#                {% for recette in recettes %}#}
+                <div class="col-10 col-md-4 offset-md-0 mb-4">
+                    <div class="card borderCo">
+                        <img class="card-img-top imgCard" src="{{ asset('assets/img/salade.jpg') }}"
+                             alt="Card image cap">
+                        <div class="card-body backgroundCard catTitle">
+                            <h5 class="card-title text-center">recette.titre</h5>
+                            <p class="card-text">recette.descriptions</p>
+                            <div class="text-center">
+                                <a href="#" class="btn btn-primary justify-content-center">Voir la recette</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {#                {% endfor %}#}
+            </div>
+        </div>
+    {% endblock %}
+    <!------------------------------------------------------------------------------------------------------------->
+{% endblock %}
+<!--------------------------------------------------------------------------------------------------------------------->
+{% block footer %}
+    <footer>
+        <div class="card-body container-fluid footer">
+            <div class="row">
+                <div class="logo card-body col-md-3 col-lg-3 mt-3 align-self-center">
+                    <figure class="text-center">
+                        <img src="{{ asset('assets/img/cooking.png') }}" class="img-fluid" alt="logo">
+                    </figure>
+                </div>
+                <div class="card-body part col-sm-12 col-md-3 col-lg-3 text-center justify-content-around mt-4 row  align-self-center">
+                    <h5 class=" col-lg-12">Partenaires:</h5>
+                    <div class="row card-body col-12 justify-content-center">
+                        <figure class="ml-3 mr-3 mt-2">
+                            <img src="{{ asset('assets/img/marmiton.png') }}" alt="marmiton" width="50">
+                        </figure>
+                        <figure class="ml-3 mr-3 mt-2">
+                            <img src="{{ asset('assets/img/cuisineAZ.png') }}" alt="cuisineAZ" width="50">
+                        </figure>
+                    </div>
+                    <div class="row card-body col-12 justify-content-center ">
+                        <figure class="ml-3 mr-3">
+                            <img src="{{ asset('assets/img/750g.png') }}" alt="750g" width="50">
+                        </figure>
+
+                        <figure class="ml-3 mr-3">
+                            <img src="{{ asset('assets/img/l_athelier_des_chefs.png') }}" alt="l'athelier des chefs"
+                                 width="50">
+                        </figure>
+                    </div>
+                </div>
+                <div class="orange">
+
+                </div>
+                <div class="card-body  col-sm-12 col-md-3 col-lg-3 mt-5 align-self-center">
+                    <p class="text-center ">
+                        FANSCook&copy; <br>
+                        55 Avenue Jean Jaurès, 62800 Liévin <br>
+                        Tél: 03.21.45.86.23 <br>
+                        Email: <a href="#">contact@fanscook.fr</a>
+                    </p>
+                </div>
+                <div class="orange">
+
+                </div>
+                <div class="card-body col-sm-12 col-md-3 col-lg-3 text-center mt-5 align-self-center">
+                    <a href="#">Nous Contacter</a><br>
+                    <a href="#">Mention Légales</a><br>
+                    <a href="#">CGU</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+{% endblock %}
+<!--------------------------------------------------------------------------------------------------------------------->
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript" src="https://kit.fontawesome.com/a2bab1df4f.js" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('assets/js/JS_menu_compte.js') }}"></script>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,23 @@
+{% extends 'public/public.html.twig' %}
+
+{% block title %}Articles index{% endblock %}
+
+{% block container %}
+    <h1 class="text-center m-5">Liste des Articles</h1>
+    <div class="row">
+        {% for article in articles %}
+            <div class="col-4 mx-auto">
+                <div class="card my-5 borderCo">
+                    <img src="{{ asset('assets/img/' ~ article.image) }}" class="imgCard card-img-top" alt="apero">
+                    <div class="card-body backgroundCard catTitle">
+                        <h5 class="card-title text-center">{{ article.titre }}</h5>
+                        <div class="text-right">
+                            <a href="{{ path('articles_show', {'id': article.id}) }}"
+                               class="btn btn-dark text-white">Article</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

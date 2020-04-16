@@ -1,0 +1,46 @@
+{% extends 'admin/admin.html.twig' %}
+
+{% block title %}Users liste{% endblock %}
+
+{% block container %}
+    <div class="card-body text-center col-lg-9 mt-5 mx-auto">
+        <h1 class="mb-4">Liste des Utilisateurs</h1>
+        <table id="liste" class="table table-dark justify-content-center">
+            <thead>
+            <tr>
+                <th class="th-sm text-center">ID</th>
+                <th class="th-sm text-center">Nom</th>
+                <th class="th-sm text-center">Prénom</th>
+                <th class="th-sm text-center">Pseudo</th>
+                <th class="th-sm text-center">Email</th>
+                <th class="th-sm text-center">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.nom }}</td>
+                    <td>{{ user.prenom }}</td>
+                    <td>{{ user.pseudo }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>
+                        <div class="btn-group btn-group-sm" role="group" aria-label="...">
+                            <a href="{{ path('admin_users_show', {'id': user.id}) }}" type="button" class="btn btn-light">Voir</a>
+                            <a href="{{ path('admin_users_edit', {'id': user.id}) }}" type="button" class="btn btn-info">Modiffier</a>
+                            {{ include('admin/users/_delete_form.html.twig') }}
+                        </div>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="8">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <div class="text-right pr-5 col-md-12">
+            <a href="{{ path('admin_users_new') }}" type="button" class="btn btn-success mt-3 mb-3">Ajouter</a>
+        </div>
+    </div>
+{% endblock %}

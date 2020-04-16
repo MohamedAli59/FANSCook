@@ -1,0 +1,24 @@
+{% extends 'admin/admin.html.twig' %}
+
+{% block title %}Articles{% endblock %}
+
+{% block container %}
+    <div class="col-lg-10">
+        <h1 class="text-center mt-5 mb-5">Article</h1>
+        <div class="card p-0 col-lg-6 mb-5 mx-auto article">
+            <img src="{{ asset('assets/img/' ~ article.image) }}" class="card-img-top" id="liste" alt="...">
+            <div class="card-body">
+                <h5 class="card-title text-center mb-3 mb-3">{{ article.titre }}</h5>
+                <p class="card-text text-justify"> {{ article.description }} </p>
+            </div>
+            <div class="text-right">
+                <span>{{ article.dateAdd ? article.dateAdd|date('Y-m-d H:i:s') : '' }}  </span>
+            </div>
+        </div>
+        <div class="text-center m-5">
+            <a class="btn btn-dark"
+               href="{{ path('admin_articles_index') }}">{{ button_label|default('← Retour à la liste des articles') }}</a>
+        </div>
+    </div>
+
+{% endblock %}

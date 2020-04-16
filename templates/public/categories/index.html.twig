@@ -1,0 +1,22 @@
+{% extends 'public/public.html.twig' %}
+
+{% block title %}Categories{% endblock %}
+
+{% block container %}
+    <h1 class="text-center mt-5">Catégories</h1>
+
+    <div class="container justify-content-around">
+        <div class="row my-5 d-flex justify-content-center">
+            {% for categorie in categories %}
+            <div class="col-10 col-md-6 offset-md-0 mb-5 d-flex justify-content-center">
+                <div class="borderCo card">
+                    <img class="imgCard card-img-top" src="{{asset('assets/img/' ~ categorie.images) }}" alt="Card image cap">
+                    <div class="catTitle card-body backgroundCard">
+                        <a href="{{ path('categories_show', {'id': categorie.id}) }}"><h5 class="card-title text-center">{{ categorie.nom }}</h5></a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

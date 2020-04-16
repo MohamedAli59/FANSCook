@@ -1,0 +1,134 @@
+/* Partie commune à toutes les pages */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+footer {
+    bottom: 0;
+    width: 100%;
+    color: #333333;
+}
+
+
+
+/* Partie Inscription */
+.bordure {
+    border: 3px solid black;
+    border-radius: 10px;
+    margin: auto;
+    width: 50%;
+}
+
+
+
+/* Partie Liste_recette */
+.card {
+    height: 88%;
+}
+
+
+
+/* Partie detail_recette */
+#coeur {
+    width: 100px;
+    margin-top: 3.5%;
+}
+
+#brusch {
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 54%;
+}
+
+h5 {
+    margin-top: 2%;
+}
+
+li {
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.ingredients {
+    border: 1px solid black;
+    border-radius: 5px;
+    height: 400px;
+}
+
+.rating a {
+    text-align: left !important;
+    float: right;
+    color: #aaa;
+    text-decoration: none;
+    font-size: 2em;
+    transition: color .4s;
+}
+.rating a:hover,
+.rating a:focus,
+.rating a:hover ~ a,
+.rating a:focus ~ a {
+    color: orange;
+    cursor: pointer;
+}
+
+.rating a span {
+    color: #333333;
+    font-size: 1.5rem;
+}
+
+.divNote {
+    float: left;
+}
+
+.temps {
+    border: 1px solid black;
+    border-radius: 5px;
+    height: 100px;
+}
+
+.prepa {
+    margin-left: 10px;
+}
+
+.cuisson {
+    margin-left: 150px;
+}
+
+.preparation {
+    border: 1px solid black;
+    border-radius: 5px;
+    height: 245px;
+}
+
+
+
+
+/* Partie a_propos_nous */
+.presentation {
+    margin-top: 20px;
+    margin-left: 60px;
+    margin-bottom: 50px;
+}
+
+.presentation-2 {
+    margin-top: 20px;
+    margin-left: 60px;
+    margin-bottom: 65px;
+}
+
+.card-2 {
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.card-img {
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.card-img-2 {
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 165px;
+}

@@ -1,0 +1,37 @@
+{% extends 'admin/admin.html.twig' %}
+
+{% block title %}Ajouter une étape{% endblock %}
+
+{% block container %}
+    <div class="card-body col-lg-8 m-auto">
+        <h1 class="text-center mb-3 ">Ajouter une Etape</h1>
+        <div class="container col-7 col-xl-7">
+            {{ form_start(form) }}
+            <div>
+                <div class="border border-dark p-3 backgroundFieldset" id="liste">
+
+                    <div class="form-group mb-4">
+                        <label for="titre">Titre:</label>
+                        <input type="text" readonly class="form-control" name="titre" id="titre" value="{{ recettes.titre }}"
+                               placeholder="nom de la recette" required>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="ordre">Ordre:</label>
+                        {{form_widget(form.ordres)}}
+                    </div>
+                    <div class="form-group">
+                        <label for="etape">Etape:</label>
+                        {{form_widget(form.etapes, {'attr': {'rows': '6'}})}}
+                    </div>
+                    <div class="text-right mt-3">
+                        <button type="submit" class="btn btn-dark" name="Ajouter_Etape">Ajouter Etape</button>
+                    </div>
+                </div>
+            </div>
+            {{ form_end(form) }}
+        </div>
+        <div class="text-center m-5">
+    <a class="btn btn-dark" href="{{ path('admin_recettes_showtwo', {'id': recettes.id}) }}">← Retour à recette en cours</a>
+    </div>
+    </div>
+{% endblock %}

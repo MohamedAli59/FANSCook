@@ -1,0 +1,226 @@
+/*couleur de fond des formulaires*/
+.border {
+    background-color: #cccccc;
+    border-radius: 15px;
+}
+.button {
+    padding: 10px;
+    background: #ccc;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.button:hover {
+    background: #ddd;
+}
+#fileElem {
+    display: none;
+}
+/******menu_compte******/
+#menu div div a {
+    color: #333333;
+}
+#menu div div a:hover {
+    color: #e78200;
+}
+.menu button {
+    background-color: white;
+}
+.menu button:hover {
+    background-color: #e78200;
+}
+.text-lg-center {
+    background-color: #93c47d;
+    min-height: 700px;
+}
+.text-lg-center div a {
+    font-weight: bold;
+    color: white;
+}
+/*----------------------------------*/
+.text-lg-center div a:hover {
+    font-weight: bold;
+    color: #333333;
+}
+.text-lg-center div:hover {
+    border: 1px solid #333333;
+    border-radius: 15px;
+    background-color: #6aa84f;
+}
+/*------------------------------------*/
+#menu {
+    background-color: #93c47d;
+    display: none;
+}
+.divBody{
+    background-color: #b6d7a8;
+}
+h1 {
+    color: #333333;
+}
+@media screen and (max-width:1024px) {
+    #divMenu {
+        display: none;
+    }
+    #menu {
+        display: block;
+        text-align: right;
+    }
+    .formInfos{
+        width: 90%;
+    }
+    /*****Formulaire proposer recette*****/
+    .formRecette {
+        width: 90%;
+    }
+}
+@media screen and (min-width:1025px) {
+    #divMenu {
+        display: block !important;
+    }
+    .formInfos {
+        width: 45%;
+    }
+    /*****Formulaire proposer recette*****/
+    .formRecette {
+        width: 50%;
+    }
+}
+/*****header*****/
+.backGround{
+    background-color: #cccccc;
+}
+.input-group.md-form.form-sm.form-2 input {
+    border: 1px solid #e78200;
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+}
+.input-group.md-form.form-sm.form-2 input.red-border {
+    border: 1px solid #e78200;
+}
+.searchBackground{
+    background-color: white;
+}
+.searchBackground:hover{
+    background-color: #e78200;
+}
+.decoFontColor:hover{
+    color: white;
+}
+#iconCompte {
+    color: #333333 !important;
+}
+/* TAILLE TELEPHONE */
+@media (max-width: 575.98px) {
+    .responsive{
+        font-size: 2em !important;
+    }
+}
+/* TAILLE IPAD */
+@media (min-width: 576px) and (max-width: 768px) {
+}
+/* TAILLE ECRAN MOYEN */
+@media (min-width: 768px) and (max-width: 991px) {
+}
+/* TAILLE ECRAN GRAND */
+@media (min-width: 992px) {
+    .sizeEnvelope{
+        font-size: 3em !important;
+    }
+}
+/*****Footer*****/
+footer, .header{
+    border: 1px solid black;
+    background-color: #cccccc;
+}
+footer a{
+    color: #333333;
+}
+footer a:hover{
+    color: #e78200 !important;
+    text-decoration: none !important;
+}
+@media screen and (min-width: 768px) and (max-width: 800px){
+
+    .part{
+        padding-left: 0;
+    }
+}
+@media screen and (max-width: 767px) {
+    footer .logo  {
+        display: none;
+    }
+    footer .orange {
+        height: 5px;
+        width: 100%;
+        background-color: #e78200;
+    }
+}
+/*****Liste commentaire - Table*****/
+#listCom{
+    width: 70%;
+    text-align: center;
+    border-radius: 15px !important;
+}
+.table thead tr th {
+    border-top: none !important;
+}
+.table tr td{
+    text-align: justify;
+}
+.table tr th a {
+    color: aqua;
+}
+.table tr th a:hover {
+    color: #e78200;
+    text-decoration: none;
+}
+/*****Formulaire contact*****/
+.formCont {
+    width: 70%;
+}
+.card-img-top {
+    border-radius: 15px 15px 0px 0px;
+}
+.favTitle {
+    background-color: #333333;
+    color: #93c47d;
+    font-weight: bold;
+}
+.bi {
+    color: red !important;
+}
+.descrip {
+    text-decoration: underline #333333;
+    font-weight: bold;
+    color: #333333;
+}
+.ingredients, .preparation {
+    min-height: 400px;
+}
+.prep {
+    min-height: 300px;
+}
+ /*----------System rating------------*/
+.rating a {
+    text-align: left !important;
+    float: right;
+    color: #aaa;
+    text-decoration: none;
+    font-size: 2em;
+    transition: color .4s;
+}
+.rating a:hover,
+.rating a:focus,
+.rating a:hover ~ a,
+.rating a:focus ~ a {
+    color: orange;
+    cursor: pointer;
+}
+.rating a span {
+    color: #333333;
+    font-size: 1.5rem;
+}
+.divNote {
+    float: left;
+}

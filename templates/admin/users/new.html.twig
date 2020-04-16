@@ -1,0 +1,52 @@
+{% extends 'admin/admin.html.twig' %}
+
+{% block title %}New Users{% endblock %}
+
+{% block container %}
+    <div class="card-body col-lg-8 mt-5 mx-auto">
+        <h1 class="text-center mb-3 ">Ajouter utilisateur</h1>
+        <div class="container col-5 col-xl-5">
+            {{ form_start(form) }}
+            <div>
+                <div class="border border-dark p-4 backgroundFieldset">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="nom">Nom:</label>
+                            {{ form_widget(form.nom) }}
+                        </div>
+                        <div class="form-group col-md-6 ">
+                            <label for="prenom">Prénom:</label>
+                            {{ form_widget(form.prenom) }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="pseudo">Pseudo:</label>
+                        {{ form_widget(form.pseudo) }}
+
+                    </div>
+                    <div class="form-group">
+                        <label for="mail">E-mail:</label>
+                        {{ form_widget(form.email) }}
+
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Mot de passe:</label>
+                        {{ form_widget(form.password) }}
+                    </div>
+{#                    <div class="form-group">#}
+{#                        <label for="role">Role:</label>#}
+{#                        {{ form_widget(form.role) }}#}
+{#                    </div>#}
+                    <div class="text-right mt-3">
+                        <button class="btn btn-dark">{{ button_label|default('Ajouter') }}</button>
+                    </div>
+                </div>
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+
+
+
+    <a href="{{ path('admin_users_index') }}">back to list</a>
+{% endblock %}

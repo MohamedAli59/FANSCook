@@ -1,0 +1,40 @@
+{% extends 'admin/admin.html.twig' %}
+
+{% block title %}User - Infos{% endblock %}
+
+{% block container %}
+    <div class="card-body col-lg-8 mt-5 mx-auto">
+        <h1 class="text-center mb-3 ">Utilisateur</h1>
+        <div class="container col-5 col-xl-5">
+            <div >
+                <div class="border border-dark p-3 backgroundFieldset">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label  for="nom">Nom:</label>
+                            <input type="text" class="form-control" name="nom" id="nom" value="{{ user.nom }}">
+                        </div>
+                        <div class="form-group col-md-6 ">
+                            <label  for="prenom">Prénom:</label>
+                            <input type="text" class="form-control" name="prenom" id="prenom" value="{{ user.prenom }}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="pseudo">Pseudo:</label>
+                        <input type="text" class="form-control" name="pseudo" id="pseudo" value="{{ user.pseudo }}">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="mail">E-mail:</label>
+                        <input type="email" class="form-control" name="mail" id="mail" value="{{ user.email }}">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center m-5">
+            <a class="btn btn-dark" href="{{ path('admin_users_index') }}">← Retour à la liste des utilisateurs</a>
+        </div>
+    </div>
+    </div>
+    </div>
+{% endblock %}

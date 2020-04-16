@@ -1,0 +1,38 @@
+{% extends 'compte/compte.html.twig' %}
+
+{% block title %}Edit Users{% endblock %}
+
+{% block container %}
+    <div class="col mx-auto p-0 m-0 divBody"  id="contentFav">
+        <h1 class="text-center m-5">MODIFIER INFOS PERSONNELLES</h1>
+        <div>
+            {{ form_start(form) }}
+            <div class="border border-dark form-group-row p-4 m-5 mx-auto formInfos">
+                <div class="col">
+                    <div class="form-group col">
+                        <label class="descrip" for="name">Nom:</label>
+                        {{ form_widget(form.nom) }}
+                    </div>
+                    <div class="form-group col">
+                        <label class="descrip" for="fistName">Prénom:</label>
+                        {{ form_widget(form.prenom) }}
+                    </div>
+                    <div class="form-group col">
+                        <label class="descrip" for="pseudo">Pseudo:</label>
+                        {{ form_widget(form.pseudo) }}
+                    </div>
+                    <div class="form-group col">
+                        <label class="descrip" for="email">E-mail:</label>
+                        {{ form_widget(form.email) }}
+                    </div>
+                </div>
+                <div class="text-right">
+                    <button class="btn btn-dark">{{ button_label|default('Modifier') }}</button>
+                </div>
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+    </div>
+    </div>
+{% endblock %}

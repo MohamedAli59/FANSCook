@@ -1,0 +1,42 @@
+{% extends 'admin/admin.html.twig' %}
+
+{% block title %}Recettes - Liste{% endblock %}
+
+{% block container %}
+    <div class="card-body text-center col-lg-8 mt-5 mx-auto">
+        <h1 class="mb-4">Liste des Recettes</h1>
+        <table id="liste" class="table table-dark">
+            <thead>
+            <tr>
+                <th class="th-sm text-center">TOP Recette</th>
+                <th class="th-sm text-center">ID</th>
+                <th class="th-sm text-center">Nom</th>
+                <th class="th-sm text-center">Catégorie</th>
+                <th class="th-sm text-center">Moyenne</th>
+                <th class="th-sm text-center">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for recette in recettes %}
+                <tr>
+                    <td>{{ recette.topRecette ? 'Yes' : 'No' }}</td>
+                    <td>{{ recette.id }}</td>
+                    <td>{{ recette.titre }}</td>
+                    <td>{{ recette.categories.nom }}</td>
+                    <td>{{ recette.noteMoyenne }}</td>
+                    <td>
+                        <div class="btn-group btn-group-sm" role="group" aria-label="...">
+                            <a href="{{ path('admin_recettes_show', {'id': recette.id}) }}" type="button" class="btn btn-light">{{ button_label|default('Voir') }}</a>
+                            <a href="{{ path('admin_recettes_edit', {'id': recette.id}) }}" type="button" class="btn btn-info">{{ button_label|default('Modifier') }}</a>
+                            {{ include('admin/recettes/_delete_form.html.twig') }}
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <div class="text-right pr-5 col-md-12">
+            <a href="{{ path('admin_recettes_new') }}" type="button" class="btn btn-success mt-3 mb-3">{{ button_label|default('Ajouter') }}</a>
+        </div>
+    </div>
+{% endblock %}

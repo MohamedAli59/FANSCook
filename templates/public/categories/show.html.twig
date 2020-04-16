@@ -1,0 +1,32 @@
+{% extends 'public/public.html.twig' %}
+
+{% block title %}Categories{% endblock %}
+
+{% block container %}
+
+    <h1 class="text-center m-5">Catégorie {{ category.nom }}</h1>
+
+    <div class="row">
+
+        {% for recette in recettes %}
+            <div class="col-3 mx-auto">
+                <div class="card my-5 borderCo">
+                    <img src="{{ asset('assets/img/' ~ recette.image) }}" class="imgCard card-img-top" alt="apero">
+                    <div class="card-body backgroundCard catTitle">
+                        <h5 class="card-title text-center">{{ recette.titre }}</h5>
+                        <p class="card-text">{{ recette.descriptions }}</p>
+                        <div class="text-right">
+                            <a href="{{ path('categorie_recettes_show', {'id': recette.id}) }}"
+                               class="btn btn-dark text-white">Recette</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="text-center mb-5">
+        <a type="button" class="btn btn-dark" href="{{ path('categories_index') }}">← Retour à la liste des
+            catégories</a>
+    </div>
+{% endblock %}

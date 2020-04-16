@@ -1,0 +1,56 @@
+.headerAdmin{
+    background-color: black;
+}
+#liste{
+    border-radius: 15px;
+}
+
+.menu {
+    height: 800px;
+}
+
+.backgroundFieldset{
+    border-radius: 15px;
+    background-color: #CCCCCC;
+}
+
+.article{
+    border-radius: 15px;
+    background-color: #CCCCCC;
+}
+.messageText{
+    background-color: white;
+}
+
+.radius{
+    border-radius: 15px;
+}
+.table thead tr th {
+    border-top: none !important;
+}
+/*--------------------------------------*/
+#divMenu{
+    background-color: black;
+}
+.text-lg-center div:hover {
+    border: 1px solid #e78200;
+    border-radius: 15px;
+    background-color: #333333;
+}
+.text-lg-center div a:hover {
+    font-weight: bold;
+    color: #e78200;
+}
+.text-lg-center div a {
+    font-weight: bold;
+    color: white;
+}
+.text-lg-center {
+    min-height: 1100px;
+}
+
+.descrip {
+    text-decoration: underline #333333;
+    font-weight: bold;
+    color: #333333;
+}

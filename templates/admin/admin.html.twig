@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Accueil - Admin{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('assets/css/admin.css') }}">
+    {% endblock %}
+</head>
+<body>
+<!---------------------------------header------------------------------------------------------------------------------>
+{% block header %}
+    <div class="d-flex flex-wrap headerAdmin">
+        <div class="col-6 col-md-3">
+            <a href="{{ path('admin') }}"><img class="img-fluid" src="{{ asset('assets/img/Cooking.png') }}" alt="logo_FANSCook"></a>
+        </div>
+        <div class="col-6 col-md-3 order-md-last align-self-center d-flex justify-content-end">
+            <a href="{{path('security_logout')}}" type="button"
+               class="d-none d-xl-inline btn btn-outline-danger btn-sm mr-4 decoFontColor text-white">
+                Deconnexion
+            </a>
+            <i class="d-xl-none fas fa-power-off fa-2x text-danger"></i>
+            <i class="fas fa-envelope text-white fa-2x mx-4 sizeEnvelope"></i>
+        </div>
+        <div class="col col-md-6 align-self-center">
+        </div>
+    </div>
+
+{% endblock %}
+<!--------------------------------------------------------------------------------------------------------------------->
+<!-------------------------------------------------body---------------------------------------------------------------->
+{% block body %}
+    <div class="container-fluid m-0 p-0">
+        <div class="row m-0 p-0">
+            <div class="col-lg-2" id="divMenu">
+                <div class="row">
+                    <div id="menuCol" class="text-lg-center col pt-5 pb-5">
+                        <div class="p-2">
+                            <a class="nav-item nav-link p-3" href="{{path('admin')}}">Accueil<span
+                                        class="sr-only">(current)</span></a>
+                        </div>
+                        <div class="p-2">
+                            <a class="nav-item nav-link p-3" href="{{path('admin_users_index')}}">Gérer les Utilisateurs</a>
+                        </div>
+                        <div class="p-2">
+                            <a class="nav-item nav-link p-3" href="{{path('recettes_index')}}">Gérer les Recettes</a>
+                        </div>
+                        <div class="p-2">
+                            <a class="nav-item nav-link p-3" href="{{path('admin_articles_index')}}">Gérer les Articles</a>
+                        </div>
+                        <div class="p-2">
+                            <a class="nav-item nav-link p-3" href="{{path('admin')}}">Commentaires</a>
+                        </div>
+                        <div class="p-2">
+                            <a class="nav-item nav-link p-3" href="{{path('admin')}}">Messages</a>
+                        </div>
+                        <div class="p-2">
+                            <a class="nav-item nav-link p-3" href="{{path('admin')}}">Imports/Exports</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- fin du menu -->
+            <!------------------------ Début Container------------------------------------------------------- -->
+            {% block container %}
+                <div class="card-body text-center col-lg-5 mt-5 mx-auto">
+                    <h1 class="mb-4">BIENVENUE DANS VOTRE ESPACE ADMINISTRATEUR</h1>
+                </div>
+            {% endblock %}
+            <!----------- Fin Container ------------------------------------------------------------------------------>
+        </div>
+    </div>
+{% endblock %}
+<!----------------------------------------------------------------------------------------------------------------->
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript" src="https://kit.fontawesome.com/a2bab1df4f.js" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('assets/js/JS_menu_compte.js') }}"></script>
+{% endblock %}
+</body>
+</html>

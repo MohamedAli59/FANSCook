@@ -1,0 +1,79 @@
+.backGround, footer, .background_body, .backgroundCard{
+    background-color: #cccccc;
+}
+
+.btnGrey{
+    color: #333333;
+}
+
+.colorMenu{
+    background-color: #e06666;
+}
+
+body{
+    background-color: #ea9999;
+}
+
+.borderCo{
+    border-radius:20px;
+    border: 1px solid black;;
+}
+
+.catTitle{
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-radius: 0 0 20px 20px;
+    background-color: #cccccc;
+    color: black;
+    text-decoration: none;
+}
+.catTitle a{
+    color: black;
+    text-decoration: none;
+}
+.catTitle a:hover{
+    color: #e78200;
+}
+.imgCard{
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-radius: 20px 20px 0 0;
+}
+
+/*----------System rating------------*/
+.rating a {
+    text-align: left !important;
+    float: right;
+    color: #aaa;
+    text-decoration: none;
+    font-size: 2em;
+    transition: color .4s;
+}
+.rating a:hover,
+.rating a:focus,
+.rating a:hover ~ a,
+.rating a:focus ~ a {
+    color: gold;
+    cursor: pointer;
+}
+.rating a span {
+    color: #333333;
+    font-size: 1.5rem;
+}
+.divNote {
+    float: left;
+}
+
+.ingredients, .preparation {
+    min-height: 400px;
+}
+.prep {
+    min-height: 300px;
+}
+.descrip {
+    text-decoration: underline #333333;
+    font-weight: bold;
+    color: #333333;
+}

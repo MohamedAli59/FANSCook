@@ -1,0 +1,29 @@
+{% extends 'public/public.html.twig' %}
+
+{% block title %}Recettes{% endblock %}
+
+{% block container %}
+
+
+    <h1 class="text-center m-5">Recherche</h1>
+    <div class="container col-8">
+        {% for recette in recettes %}
+            <div class="card mb-4">
+                <div class="row no-gutters backgroundCard">
+                    <div class="col p-0">
+                        <img src="{{ asset('assets/img/' ~ recette.image ) }}" class="card-img" alt="...">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body">
+                            <h3 class="card-title">{{ recette.titre }}</h3>
+                            <p class="card-text">{{ recette.descriptions }}</p>
+
+                            <a href="{{ path('categorie_recettes_show', {'id': recette.id}) }}"
+                               class="btn btn-dark float-right text-white mt-5">Recette</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
